@@ -1,7 +1,7 @@
 "use client"
 
-import ParticleScene from "@/components/ParticleScene"
-import GitHubProjects from "@/components/GitHubProjects"
+import ParticleScene from "../components/ParticleScene"
+import GitHubProjects from "../components/GitHubProjects"
 import GitHubCalendar from "react-github-calendar"
 import Typing from "react-typing-effect"
 import { useTheme } from "next-themes"

@@ -1,6 +1,6 @@
 import './globals.css'
 import { ThemeProvider } from 'next-themes'
-import PageTransition from '@/components/PageTransition'
+import PageTransition from '../components/PageTransition'
 
 export const metadata = {
     title: "Manikandan | Software Engineer",
