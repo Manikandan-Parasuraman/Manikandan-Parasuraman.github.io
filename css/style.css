@@ -1,0 +1,247 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fa;
+    color: #1a1f36;
+}
+
+.resume-container {
+    background: #ffffff;
+    padding: 45px;
+    margin: 40px auto;
+    max-width: 1000px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 32px;
+    margin-bottom: 4px;
+}
+
+.role-title {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.contact-line {
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.contact-line a {
+    color: #000;
+    text-decoration: none;
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 28px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4px;
+}
+
+.section-text {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.download-btn {
+    margin-top: 35px;
+}
+
+/* 🚀 Vibrant Blue Futuristic Design - Senior Backend/AI Focus */
+:root {
+    --electric-blue: #3B82F6;
+    --neon-cyan: #60A5FA;
+    --vibrant-blue-top: #1E4D9E;
+    --vibrant-blue-mid: #2563EB;
+    --vibrant-blue-bottom: #1D4ED8;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --text-primary: #FFFFFF;
+    --text-soft-blue: #DBEAFE;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, var(--vibrant-blue-top) 0%, var(--vibrant-blue-mid) 50%, var(--vibrant-blue-bottom) 100%);
+    color: var(--text-primary);
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Glassmorphism & Background */
+.login-gate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Layered Vibrant Blue Glows */
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* Animated Tech Decor - Lighter Blue Nodes */
+.bg-decoration {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.node {
+    position: absolute;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    color: var(--neon-cyan);
+    font-size: 24px;
+    opacity: 0.2;
+    animation: float 12s infinite ease-in-out;
+}
+
+.node-1 {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.node-2 {
+    top: 25%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.node-3 {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 5s;
+}
+
+.node-4 {
+    bottom: 30%;
+    right: 10%;
+    animation-delay: 7s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: translateY(-40px) rotate(10deg);
+        opacity: 0.3;
+    }
+}
+
+/* Premium Login Card - Highly Transparent Glass */
+.login-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4.5rem 3rem;
+    border-radius: 40px;
+    box-shadow: 0 0 60px -10px rgba(59, 130, 246, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    max-width: 480px;
+    width: 90%;
+    z-index: 2001;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.login-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 40px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent, rgba(96, 165, 250, 0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.login-box:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 100px -20px rgba(59, 130, 246, 0.5);
+}
+
+/* Brand/Avatar Styling */
+.login-avatar {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.9);
+    /* Bright white for logo visibility */
+    border: 1px solid var(--neon-cyan);
+    border-radius: 30px;
+    margin: 0 auto 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.login-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Typography Hierarchy */
+.login-box h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    color: var(--text-primary);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-box p {
+    color: var(--text-soft-blue);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 3.5rem;
+    font-weight: 400;
+}
+
+/* Button & Login UI Styling */
+#buttonDiv {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#buttonDiv:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.hidden {
+    display: none !important;
+}

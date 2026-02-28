@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manikandan P | Senior Software Engineer</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container resume-container" id="resume-app">
+        <h1 id="user-name"></h1>
+        <div class="role-title" id="user-role"></div>
+
+        <div class="contact-line" id="user-contact">
+            <!-- Contact info will be dynamically populated -->
+        </div>
+
+        <div class="section-title">Professional Summary</div>
+        <div class="section-text" id="resume-summary"></div>
+
+        <div class="section-title">Skills</div>
+        <div class="section-text" id="resume-skills"></div>
+
+        <div class="section-title">Work Experience</div>
+        <div class="section-text" id="resume-experience"></div>
+
+        <div class="section-title">Projects</div>
+        <div class="section-text" id="resume-projects"></div>
+
+        <div class="section-title">Education</div>
+        <div class="section-text" id="resume-education"></div>
+
+        <div class="section-title">Certifications</div>
+        <div class="section-text" id="resume-certifications"></div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-outline-secondary btn-sm me-2" onclick="logout()">
+                Logout
+            </button>
+            <button class="btn btn-dark download-btn mt-0" onclick="downloadATSResume()">
+                Download Resume
+            </button>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Check for session
+        if (!sessionStorage.getItem('isLoggedIn')) {
+            window.location.href = 'index.html';
+        } else {
+            loadResumeContent();
+        }
+
+        function logout() {
+            sessionStorage.removeItem('isLoggedIn');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

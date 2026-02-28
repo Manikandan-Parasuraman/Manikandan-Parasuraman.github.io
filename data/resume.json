@@ -1,0 +1,63 @@
+{
+    "personal_info": {
+        "name": "Manikandan P",
+        "role": "Senior Software Engineer",
+        "location": "Tiruvannamalai, Tamil Nadu",
+        "phone": "+91 7305769813",
+        "email": "manikandan3007@yahoo.com",
+        "linkedin": "https://www.linkedin.com/in/manikandan-parasuraman",
+        "linkedin_label": "linkedin.com/in/manikandan-parasuraman",
+        "github": "https://github.com/Manikandan-Parasuraman",
+        "github_label": "github.com/Manikandan-Parasuraman"
+    },
+    "summary": "Experienced Software Engineer specializing in microservices architecture, REST API development, MongoDB database design, automation frameworks, cloud deployment (GCP & Azure), CI/CD implementation, and code quality governance using SonarQube.",
+    "skills": [
+        "Flask", "FastAPI", "MongoDB", "PyMongo", "Selenium", "BeautifulSoup", "SonarQube",
+        "GCP", "Azure", "Git", "Bitbucket", "Jira", "Agile", "Scrum"
+    ],
+    "experience": [
+        {
+            "company": "Quantrium.ai",
+            "role": "Software Engineer",
+            "period": "Feb 2019 – Present",
+            "highlights": [
+                "Designed and implemented microservices architecture.",
+                "Developed scalable REST APIs.",
+                "Managed MongoDB scripting and optimization.",
+                "Deployed applications to GCP and Azure."
+            ]
+        },
+        {
+            "company": "Kadamba Technologies",
+            "role": "Software Tester",
+            "period": "Dec 2017 – Feb 2019",
+            "highlights": [
+                "Developed automation testing framework.",
+                "Managed defect lifecycle and documentation."
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "Custom Automation Testing Framework",
+            "description": "Modular CI/CD integrated automation solution."
+        },
+        {
+            "name": "MongoDB MCP Server",
+            "description": "REST-based MCP server with MongoDB integration."
+        }
+    ],
+    "education": [
+        {
+            "degree": "Bachelor of Technology (B.Tech) – Information Technology",
+            "institution": "SKP Engineering College",
+            "year": "2017"
+        }
+    ],
+    "certifications": [
+        "Oracle Certified Professional, Java SE 8",
+        "RDBMS – NIIT",
+        "Manual & Automation Testing",
+        "Diplomate in Computer Application"
+    ]
+}
