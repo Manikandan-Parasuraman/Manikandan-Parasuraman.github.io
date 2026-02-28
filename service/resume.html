@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manikandan P | Senior Software Engineer</title>
+
+    <link rel="stylesheet" href="../css/resume.css">
+</head>
+
+<body>
+
+    <script>
+        /* Immediate auth check before rendering content */
+        if (!sessionStorage.getItem("isLoggedIn")) {
+            window.location.replace("../index.html");
+        }
+    </script>
+
+    <div class="resume-container">
+
+        <header class="resume-header">
+            <h1 id="user-name">Manikandan P</h1>
+            <p class="role-title" id="user-role">Senior Software Engineer</p>
+            <div class="contact-line" id="user-contact"></div>
+        </header>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <p id="resume-summary"></p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <p id="resume-skills"></p>
+        </section>
+
+        <section>
+            <h2>Work Experience</h2>
+            <p id="resume-experience"></p>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <p id="resume-projects"></p>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <p id="resume-education"></p>
+        </section>
+
+        <section>
+            <h2>Certifications</h2>
+            <p id="resume-certifications"></p>
+        </section>
+
+        <div class="actions">
+            <button onclick="logout()">Logout</button>
+            <button class="primary" onclick="downloadResume()">Download Resume</button>
+        </div>
+
+    </div>
+
+    <script src="../js/script.js" defer></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof loadResumeContent === "function") {
+                loadResumeContent();
+            }
+        });
+
+        function logout() {
+            sessionStorage.removeItem("isLoggedIn");
+            window.location.replace("../index.html");
+        }
+
+        /* Lazy load PDF library only when needed */
+        function downloadResume() {
+            const script = document.createElement("script");
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+            script.onload = () => downloadATSResume();
+            document.body.appendChild(script);
+        }
+    </script>
+
+</body>
+
+</html>
