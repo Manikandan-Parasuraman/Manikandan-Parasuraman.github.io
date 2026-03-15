@@ -1,6 +1,6 @@
 {
     "personal_info": {
-        "name": "Manikandan P",
+        "name": "Manikandan Parasuraman",
         "role": "Senior Software Engineer",
         "location": "Tiruvannamalai, Tamil Nadu",
         "phone": "+91 7305769813",
@@ -12,19 +12,38 @@
     },
     "summary": "Experienced Software Engineer specializing in microservices architecture, REST API development, MongoDB database design, automation frameworks, cloud deployment (GCP & Azure), CI/CD implementation, and code quality governance using SonarQube.",
     "skills": [
-        "Flask", "FastAPI", "MongoDB", "PyMongo", "Selenium", "BeautifulSoup", "SonarQube",
-        "GCP", "Azure", "Git", "Bitbucket", "Jira", "Agile", "Scrum"
+        "Flask",
+        "FastAPI",
+        "MongoDB",
+        "PyMongo",
+        "Selenium",
+        "BeautifulSoup",
+        "SonarQube",
+        "GCP",
+        "Azure",
+        "Git",
+        "Bitbucket",
+        "Jira",
+        "Agile",
+        "Scrum"
     ],
     "experience": [
         {
-            "company": "Quantrium.ai",
+            "company": "Quantrium Tech Pvt Ltd",
             "role": "Software Engineer",
             "period": "Feb 2019 – Present",
             "highlights": [
-                "Designed and implemented microservices architecture.",
-                "Developed scalable REST APIs.",
-                "Managed MongoDB scripting and optimization.",
-                "Deployed applications to GCP and Azure."
+                "Designed and implemented microservices-based backend systems.",
+                "Developed scalable REST APIs using Python (FastAPI).",
+                "Built and optimized MongoDB queries, scripts, and data models.",
+                "Implemented authentication and authorization mechanisms for secure APIs.",
+                "Deployed and maintained cloud applications on GCP and Azure.",
+                "Managed CI/CD pipelines and version control using GitHub and Bitbucket.",
+                "Improved system performance through API optimization and database tuning.",
+                "Built automation tools and AI-powered workflows using modern AI frameworks and APIs.",
+                "Implemented LLM-based solutions for internal tools and automation.",
+                "Implemented data pipelines and preprocessing scripts for AI/ML model consumption.",
+                "Researched emerging AI technologies such as MCP (Model Context Protocol) and AI agents."
             ]
         },
         {
@@ -32,8 +51,14 @@
             "role": "Software Tester",
             "period": "Dec 2017 – Feb 2019",
             "highlights": [
-                "Developed automation testing framework.",
-                "Managed defect lifecycle and documentation."
+                "Produced thorough, accurate test documentation including test plans and scripts.",
+                "Maintained and created product knowledge documentation for use within the test team.",
+                "Assisted with functional queries arising from business users following software release.",
+                "Designed product-changing software improvements based on test run results and client feedback.",
+                "Analysed test results to determine accuracy, durability and efficiency of software.",
+                "Reported testing progress to line management, communicating effectively and escalating where appropriate.",
+                "Prioritised bugs through focused data collection and analysis, driving continual innovation.",
+                "Defined and maintained automation testing for various software applications."
             ]
         }
     ],

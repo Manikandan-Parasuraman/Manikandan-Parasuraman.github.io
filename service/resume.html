@@ -4,66 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manikandan P | Senior Software Engineer</title>
-
+    <title>Manikandan P | Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/resume.css">
 </head>
 
 <body>
 
-    <script>
-        /* Immediate auth check before rendering content */
-        if (!sessionStorage.getItem("isLoggedIn")) {
-            window.location.replace("../index.html");
-        }
-    </script>
+    <nav>
+        <a href="#" class="logo">MANIKANDAN P</a>
+        <div class="nav-links">
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#repos">Repositories</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+        </div>
+    </nav>
 
-    <div class="resume-container">
+    <header class="hero">
+        <h1 id="user-name"></h1>
+        <p id="resume-summary"></p>
 
-        <header class="resume-header">
-            <h1 id="user-name">Manikandan P</h1>
-            <p class="role-title" id="user-role">Senior Software Engineer</p>
-            <div class="contact-line" id="user-contact"></div>
-        </header>
-
-        <section>
-            <h2>Professional Summary</h2>
-            <p id="resume-summary"></p>
-        </section>
-
-        <section>
-            <h2>Skills</h2>
-            <p id="resume-skills"></p>
-        </section>
-
-        <section>
-            <h2>Work Experience</h2>
-            <p id="resume-experience"></p>
-        </section>
-
-        <section>
-            <h2>Projects</h2>
-            <p id="resume-projects"></p>
-        </section>
-
-        <section>
-            <h2>Education</h2>
-            <p id="resume-education"></p>
-        </section>
-
-        <section>
-            <h2>Certifications</h2>
-            <p id="resume-certifications"></p>
-        </section>
-
-        <div class="actions">
-            <button onclick="logout()">Logout</button>
-            <button class="primary" onclick="downloadResume()">Download Resume</button>
+        <div class="contact-pill" id="user-contact">
         </div>
 
-    </div>
+        <div class="btn-group">
+            <a href="#" onclick="downloadResume(); return false;" class="btn btn-resume">
+                <i class="fas fa-file-pdf"></i> Download Resume
+            </a>
+            <a id="linkedin-btn" href="#" target="_blank" class="btn btn-outline">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a id="github-header-btn" href="#" target="_blank" class="btn btn-outline">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </header>
 
-    <script src="../js/script.js" defer></script>
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="card" id="resume-experience">
+        </div>
+    </section>
+
+    <section id="projects" style="background: #edf2f7;">
+        <h2 class="section-title">Projects</h2>
+        <div id="resume-projects" class="grid">
+        </div>
+    </section>
+
+    <!-- GITHUB REPOSITORIES WITH PAGINATION -->
+    <section id="repos">
+        <h2 class="section-title">GitHub Repositories</h2>
+        <div id="repo-grid" class="grid">
+            <!-- Loaded dynamically by JS -->
+        </div>
+        <div class="pagination-container">
+            <button class="btn-page" id="repoPrev" onclick="changeRepoPage(-1)">Previous</button>
+            <span id="repoPageInfo" style="font-weight: 600;">Page 1</span>
+            <button class="btn-page" id="repoNext" onclick="changeRepoPage(1)">Next</button>
+        </div>
+    </section>
+
+    <section id="skills" style="background: #edf2f7;">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-wrap" id="resume-skills">
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="grid">
+            <div class="card" id="resume-education">
+            </div>
+            <div class="card" id="resume-certifications">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Manikandan P &bull; Senior Software Engineer</p>
+        <div style="margin-top: 15px; font-size: 1.5rem;">
+            <a id="github-btn" href="#" target="_blank" style="color: white; margin: 0 10px;"><i
+                    class="fab fa-github"></i></a>
+            <a id="linkedin-footer-btn" href="#" target="_blank" style="color: white; margin: 0 10px;"><i
+                    class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script src="../js/resume.js" defer></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -72,11 +103,6 @@
             }
         });
 
-        function logout() {
-            sessionStorage.removeItem("isLoggedIn");
-            window.location.replace("../index.html");
-        }
-
         /* Lazy load PDF library only when needed */
         function downloadResume() {
             const script = document.createElement("script");
@@ -84,6 +110,50 @@
             script.onload = () => downloadATSResume();
             document.body.appendChild(script);
         }
+
+        // --- GITHUB REPO ENGINE (DYNAMIC) ---
+        let allRepos = [];
+        let repoPage = 1;
+        const itemsPerPage = 3;
+
+        async function initGitHub() {
+            try {
+                // Fetches real data from your GitHub
+                const response = await fetch('https://api.github.com/users/Manikandan-Parasuraman/repos?sort=updated');
+                allRepos = await response.json();
+                renderRepos();
+            } catch (e) {
+                document.getElementById('repo-grid').innerHTML = "<p>Error loading repositories. Please check connection.</p>";
+            }
+        }
+
+        function renderRepos() {
+            const grid = document.getElementById('repo-grid');
+            const start = (repoPage - 1) * itemsPerPage;
+            const currentItems = allRepos.slice(start, start + itemsPerPage);
+
+            grid.innerHTML = currentItems.map(repo => `
+                <div class="card">
+                    <h3 style="color: var(--primary-navy); margin-bottom:10px">${repo.name.replace(/-/g, ' ')}</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-light); flex-grow:1">${repo.description || "Project exploring advanced software engineering concepts."}</p>
+                    <a href="${repo.html_url}" target="_blank" style="color: var(--secondary-blue); font-weight:700; margin-top:15px; text-decoration:none">View Source →</a>
+                </div>
+            `).join('');
+
+            // Update Pagination UI
+            const totalPages = Math.ceil(allRepos.length / itemsPerPage) || 1;
+            document.getElementById('repoPageInfo').innerText = `Page ${repoPage} of ${totalPages}`;
+            document.getElementById('repoPrev').disabled = repoPage === 1;
+            document.getElementById('repoNext').disabled = repoPage >= totalPages;
+        }
+
+        function changeRepoPage(step) {
+            repoPage += step;
+            renderRepos();
+        }
+
+        // Initialize GitHub fetching on load
+        initGitHub();
     </script>
 
 </body>
