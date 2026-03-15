@@ -105,10 +105,25 @@
 
         /* Lazy load PDF library only when needed */
         function downloadResume() {
-            const script = document.createElement("script");
-            script.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
-            script.onload = () => downloadATSResume();
-            document.body.appendChild(script);
+            // Check if downloadATSResume exists, if not, load the script
+            if (typeof downloadATSResume === "undefined") {
+                const resumeScript = document.createElement("script");
+                resumeScript.src = "../js/downloadResume.js";
+                resumeScript.onload = () => {
+                    // Need jsPDF library for the resume logic
+                    if (typeof window.jspdf === "undefined") {
+                        const pdfScript = document.createElement("script");
+                        pdfScript.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+                        pdfScript.onload = () => downloadATSResume();
+                        document.body.appendChild(pdfScript);
+                    } else {
+                        downloadATSResume();
+                    }
+                };
+                document.body.appendChild(resumeScript);
+            } else {
+                downloadATSResume();
+            }
         }
 
         // --- GITHUB REPO ENGINE (DYNAMIC) ---
