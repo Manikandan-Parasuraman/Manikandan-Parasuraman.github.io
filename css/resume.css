@@ -220,12 +220,35 @@ section {
     cursor: not-allowed;
 }
 
-/* Skill Badges */
+/* Skill Categories and Badges */
+#resume-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--secondary-blue);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.skill-category-title {
+    color: var(--primary-navy);
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
 .skills-wrap {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
 }
 
 .skill-badge {

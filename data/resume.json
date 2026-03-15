@@ -11,22 +11,69 @@
         "github_label": "github.com/Manikandan-Parasuraman"
     },
     "summary": "Experienced Software Engineer specializing in microservices architecture, REST API development, MongoDB database design, automation frameworks, cloud deployment (GCP & Azure), CI/CD implementation, and code quality governance using SonarQube.",
-    "skills": [
-        "Flask",
-        "FastAPI",
-        "MongoDB",
-        "PyMongo",
-        "Selenium",
-        "BeautifulSoup",
-        "SonarQube",
-        "GCP",
-        "Azure",
-        "Git",
-        "Bitbucket",
-        "Jira",
-        "Agile",
-        "Scrum"
-    ],
+    "skills": {
+        "Programming Languages": [
+            "Python",
+            "Go",
+            "Java",
+            "C#",
+            "Node.js"
+        ],
+        "Backend Frameworks": [
+            "FastAPI",
+            "Flask",
+            "Flask-RESTful"
+        ],
+        "API Development": [
+            "REST API Design",
+            "API Integration",
+            "API Documentation"
+        ],
+        "Databases": [
+            "MongoDB",
+            "PyMongo",
+            "NoSQL Data Modeling"
+        ],
+        "Automation & Web Scraping": [
+            "Selenium",
+            "BeautifulSoup",
+            "Web Scraping",
+            "Browser Automation"
+        ],
+        "Data Engineering & Workflow": [
+            "Apache Airflow",
+            "Data Pipelines",
+            "Workflow Orchestration"
+        ],
+        "Cloud Platforms": [
+            "Google Cloud Platform (GCP)",
+            "Microsoft Azure",
+            "Amazon Web Services (AWS)"
+        ],
+        "Containerization & Orchestration": [
+            "Docker",
+            "Kubernetes"
+        ],
+        "DevOps & Code Quality": [
+            "Git",
+            "Bitbucket",
+            "CI/CD",
+            "SonarQube"
+        ],
+        "Project Management": [
+            "Jira",
+            "Agile",
+            "Scrum",
+            "Kanban"
+        ],
+        "Software Architecture": [
+            "Microservices Architecture",
+            "Domain-Driven Design (DDD)",
+            "Event-Driven Architecture",
+            "RESTful System Design",
+            "Project Architecture Design"
+        ]
+    },
     "experience": [
         {
             "company": "Quantrium Tech Pvt Ltd",
@@ -80,9 +127,165 @@
         }
     ],
     "certifications": [
-        "Oracle Certified Professional, Java SE 8",
-        "RDBMS – NIIT",
-        "Manual & Automation Testing",
-        "Diplomate in Computer Application"
+        {
+            "title": "Generative AI Mastermind",
+            "issuer": "Outskill",
+            "year": "2026"
+        },
+        {
+            "title": "Software Architecture & Design of Modern Large Scale Systems",
+            "issuer": "Udemy",
+            "year": "2025"
+        },
+        {
+            "title": "Schema Design Anti-Patterns",
+            "issuer": "MongoDB",
+            "year": "2024"
+        },
+        {
+            "title": "Go - The Complete Guide",
+            "issuer": "Udemy",
+            "year": "2024"
+        },
+        {
+            "title": "Agile Project Management",
+            "issuer": "Coursera",
+            "year": "2024"
+        },
+        {
+            "title": "Project Execution: Running the Project",
+            "issuer": "Coursera",
+            "year": "2024"
+        },
+        {
+            "title": "Leadership Communication Skills for Influence and Impact",
+            "issuer": "Udemy",
+            "year": "2023"
+        },
+        {
+            "title": "Scrum Basic",
+            "issuer": "MindLuster",
+            "year": "2023"
+        },
+        {
+            "title": "Business Email Etiquette",
+            "issuer": "MindLuster",
+            "year": "2023"
+        },
+        {
+            "title": "MongoDB Training",
+            "issuer": "MindLuster",
+            "year": "2023"
+        },
+        {
+            "title": "Build a GraphQL Server",
+            "issuer": "MindLuster",
+            "year": "2023"
+        },
+        {
+            "title": "CouchDB",
+            "issuer": "MindLuster",
+            "year": "2023"
+        },
+        {
+            "title": "MongoDB Python",
+            "issuer": "MindLuster",
+            "year": "2023"
+        },
+        {
+            "title": "People Management",
+            "issuer": "MindLuster",
+            "year": "2023"
+        },
+        {
+            "title": "Project Planning: Putting It All Together",
+            "issuer": "Coursera",
+            "year": "2023"
+        },
+        {
+            "title": "Project Initiation: Starting a Successful Project",
+            "issuer": "Coursera",
+            "year": "2023"
+        },
+        {
+            "title": "Foundations of Project Management",
+            "issuer": "Coursera",
+            "year": "2023"
+        },
+        {
+            "title": "Natural Language Processing with Machine Learning in Python",
+            "issuer": "Udemy",
+            "year": "2023"
+        },
+        {
+            "title": "Python Basic Certification",
+            "issuer": "HackerRank",
+            "year": "2022"
+        },
+        {
+            "title": "Deploy Machine Learning & NLP Models with Docker",
+            "issuer": "Udemy",
+            "year": "2021"
+        },
+        {
+            "title": "MongoDB - The Complete Developer's Guide",
+            "issuer": "Udemy",
+            "year": "2020"
+        },
+        {
+            "title": "Advanced REST APIs with Flask and Python",
+            "issuer": "Udemy",
+            "year": "2020"
+        },
+        {
+            "title": "Learn Machine Learning from Scratch in Python",
+            "issuer": "Udemy",
+            "year": "2020"
+        },
+        {
+            "title": "Oracle Certified Professional, Java SE 8 Programmer II",
+            "issuer": "NIIT",
+            "year": "2018"
+        },
+        {
+            "title": "Relational Database Management System",
+            "issuer": "NIIT",
+            "year": "2018"
+        },
+        {
+            "title": "Manual and Automation Testing",
+            "issuer": "Accord Info Matrix",
+            "year": "2017"
+        },
+        {
+            "title": "Internship: Geo-Social Network User Profile Preservation",
+            "issuer": "Sans Pareil IT Services",
+            "year": "2017"
+        },
+        {
+            "title": "Cloud Computing Workshop - Pragyan",
+            "issuer": "National Institute of Technology Tiruchirappalli",
+            "year": "2016"
+        },
+        {
+            "title": "Free Software Foundation Tamil Nadu Summer Camp Volunteer",
+            "issuer": "University College of Engineering Villupuram",
+            "year": "2016"
+        },
+        {
+            "title": "National Level Technical Symposium Neura'16",
+            "issuer": "Pondicherry Engineering College",
+            "year": "2016"
+        },
+        {
+            "title": "Neural Networks and Fuzzy Applications in Engineering",
+            "issuer": "Saveetha School of Engineering",
+            "year": "2015"
+        },
+        {
+            "title": "Diplomate in Computer Application",
+            "issuer": "CSC",
+            "year": "2011"
+        }
     ]
 }

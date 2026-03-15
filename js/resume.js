@@ -57,7 +57,18 @@ function renderResume(data) {
     // Skills
     const skillsDiv = document.getElementById('resume-skills');
     if (skillsDiv) {
-        skillsDiv.innerHTML = data.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('');
+        let skillsHTML = '';
+        for (const [category, skills] of Object.entries(data.skills)) {
+            skillsHTML += `
+                <div class="skill-category">
+                    <h4 class="skill-category-title">${category}</h4>
+                    <div class="skills-wrap">
+                        ${skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        skillsDiv.innerHTML = skillsHTML;
     }
 
     // Work Experience
@@ -99,10 +110,12 @@ function renderResume(data) {
     // Certifications
     const certDiv = document.getElementById('resume-certifications');
     if (certDiv) {
-        certDiv.innerHTML = `<h4 style="color: var(--primary-navy); font-size: 1.2rem;">Certifications</h4>
-            <ul style="font-size: 0.9rem; padding-left: 20px; color: var(--text-main); margin-top: 10px;">
-                ${data.certifications.map(c => `<li style="margin-bottom: 5px;">${c}</li>`).join('')}
-            </ul>`;
+        certDiv.innerHTML = `<h4 style="color: var(--primary-navy); font-size: 1.2rem; margin-bottom: 10px;">Certifications</h4>
+            <div style="max-height: 350px; overflow-y: auto; padding-right: 10px;">
+                <ul style="font-size: 0.9rem; padding-left: 20px; color: var(--text-main); margin: 0;">
+                    ${data.certifications.map(c => `<li style="margin-bottom: 8px;"><strong>${c.title}</strong><br><span style="color: var(--text-light); font-size: 0.85rem;">${c.issuer} | ${c.year}</span></li>`).join('')}
+                </ul>
+            </div>`;
     }
 }
 
@@ -144,7 +157,9 @@ async function downloadATSResume() {
     addText(resumeData.summary);
 
     addHeading("SKILLS");
-    addText(resumeData.skills.join(", "));
+    for (const [category, skills] of Object.entries(resumeData.skills)) {
+        addText(`${category}: ${skills.join(", ")}`);
+    }
 
     addHeading("WORK EXPERIENCE");
     resumeData.experience.forEach(exp => {
@@ -167,7 +182,8 @@ async function downloadATSResume() {
     });
 
     addHeading("CERTIFICATIONS");
-    addText(resumeData.certifications.join(" | "));
+    const certsText = resumeData.certifications.map(c => `${c.title} (${c.issuer}, ${c.year})`).join(" | ");
+    addText(certsText);
 
     doc.save(`${resumeData.personal_info.name.replace(' ', '_')}_Resume.pdf`);
 }
