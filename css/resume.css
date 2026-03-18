@@ -267,20 +267,28 @@ footer {
     text-align: center;
 }
 
+@media (max-width: 1024px) {
+    nav { padding: 1rem 5%; }
+    .nav-links a { margin-left: 1.2rem; font-size: 0.85rem; }
+    .hero { padding: 140px 5% 60px; }
+    section { padding: 60px 5%; }
+}
+
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.2rem;
-    }
+    nav { justify-content: center; flex-direction: column; gap: 10px; padding: 0.8rem 5%; height: auto; position: absolute; }
+    .logo { font-size: 1.1rem; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 5px; }
+    .nav-links a { margin-left: 0; font-size: 0.8rem; padding: 5px 10px; background: rgba(255,255,255,0.1); border-radius: 4px; }
+    
+    .hero { padding: 120px 5% 40px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; margin-bottom: 1.5rem; }
+    .contact-pill { padding: 8px 15px; font-size: 0.75rem; border-radius: 8px; width: 100%; }
+    .btn-group { flex-direction: column; width: 100%; gap: 10px; }
+    .btn { width: 100%; justify-content: center; }
+}
 
-    .nav-links {
-        display: none;
-    }
-
-    section {
-        padding: 60px 5%;
-    }
-
-    .contact-pill {
-        border-radius: 10px;
-    }
+@media (max-width: 480px) {
+    .section-title { font-size: 1.6rem; margin-bottom: 2rem; }
+    .card { padding: 1.5rem; }
 }

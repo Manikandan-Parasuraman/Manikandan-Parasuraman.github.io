@@ -97,10 +97,25 @@
 .btn-outline { border: 2px solid #38bdf8; color: #38bdf8; }
 .btn-outline:hover { background: rgba(56, 189, 248, 0.1); transform: translateY(-2px); }
 
-@media (max-width: 1024px) { .hero-right { padding: 0 5%; } }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hero-split { grid-template-columns: 1fr; grid-template-rows: 40% 60%; }
     .hero-left { background-position: center 25%; }
-    .hero-right { align-items: center; text-align: center; padding: 40px 10%; }
-    .cta-buttons { max-width: 100%; }
+    .hero-right { padding: 40px 10%; align-items: center; text-align: center; }
+    .bg-label { font-size: 3rem !important; opacity: 0.02; } /* Subtler on iPads */
+    .content-wrap { max-width: 90%; padding: 30px; }
+}
+
+@media (max-width: 768px) {
+    .hero-split { grid-template-rows: 35% 65%; }
+    .hero-right { padding: 20px 5%; }
+    .bg-label { display: none; } /* Hide for clean mobile experience */
+    .cta-buttons { max-width: 100%; gap: 10px; margin-top: 1.5rem; }
+    .btn { padding: 12px 20px; font-size: 0.9rem; }
+    .welcome-msg { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 0.95rem; min-height: auto; margin-bottom: 2rem; }
+}
+
+@media (max-height: 700px) and (min-width: 769px) {
+    .content-wrap { padding: 20px; }
+    .cta-buttons { margin-top: 1rem; }
 }
