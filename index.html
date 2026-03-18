@@ -2,14 +2,54 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0;url=service/resume.html">
-    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Toolkit | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-    <p>If you are not redirected automatically, follow this <a href="service/resume.html">link</a>.</p>
-    <script src="js/index.js" defer></script>
+    <div class="intro-overlay" id="introOverlay">
+        <h1 class="intro-welcome">Welcome to My Innovation Hub</h1>
+        <p class="intro-subtitle">Engineering Scalable Systems for the Next Generation.</p>
+    </div>
+
+    <main class="hero-split" id="heroSplit">
+        <section class="hero-left"></section>
+
+        <section class="hero-right">
+            <!-- Professional Word Cloud (Static) -->
+            <div class="bg-label" style="top: 5%; right: 10%; font-size: 6rem;">ARCHITECTURE</div>
+            <div class="bg-label" style="top: 15%; left: 5%; font-size: 4rem;">SCALABLE</div>
+            <div class="bg-label" style="top: 35%; right: 15%; font-size: 3rem;">SYSTEM DESIGN</div>
+            <div class="bg-label" style="bottom: 5%; left: 10%; font-size: 5rem;">PLATFORM</div>
+            <div class="bg-label" style="bottom: 15%; right: 5%; font-size: 4.5rem;">AI INTEGRATION</div>
+            <div class="bg-label" style="bottom: 30%; left: 20%; font-size: 2.5rem;">CLOUD NATIVE</div>
+            <div class="bg-label" style="top: 55%; left: 5%; font-size: 2rem;">MICROSERVICES</div>
+            <div class="bg-label" style="top: 45%; right: 5%; font-size: 2.2rem;">FULL STACK</div>
+            
+            <div class="content-wrap">
+                <h1 class="welcome-msg">Hi, I'm Manikandan</h1>
+                <p class="subtitle">Technical Architect specializing in high-performance, scalable systems and developer
+                    productivity. Building AI-powered tools, interactive developer platforms, and workflow automation
+                    solutions.</p>
+                <div class="cta-buttons">
+                    <!-- <a href="service/dev_tools.html" class="btn btn-primary">
+                        <i class="fas fa-tools"></i> Explore Dev Tools
+                    </a> -->
+                    <a href="service/resume.html" class="btn btn-outline">
+                        <i class="fas fa-user"></i> View My Portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

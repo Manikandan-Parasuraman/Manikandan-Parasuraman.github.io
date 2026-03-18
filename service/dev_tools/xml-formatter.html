@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xml Formatter - Dev Toolkit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/tool-layout.css">
+    <link rel="stylesheet" href="css/xml-formatter.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container" style="display:flex; justify-content:space-between; width:100%; align-items:center;">
+            <a href="../../index.html" class="logo">DEV TOOLKIT</a>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../dev_tools.html">Dev Tools</a>
+                <a href="../resume.html">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+    <main class="tool-container">
+        <div class="tool-header">
+            <a href="../dev_tools.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to All Tools</a>
+            <h1 class="tool-title">Xml Formatter</h1>
+            <p class="tool-description">Developer utility for xml formatter</p>
+        </div>
+        
+        <div class="tool-content-grid" style="display:grid; grid-template-columns: 1fr 300px; gap: 30px; align-items: start;">
+            <div class="tool-card">
+                <div class="input-group">
+                    <label>Input Data</label>
+                    <textarea id="input" rows="8" placeholder='Input your data for xml formatter here...'></textarea>
+                    <div id="error" class="error-msg"></div>
+                </div>
+                
+                <div class="button-row">
+                    <button class="btn-tool btn-primary" id="generate-btn"><i class="fas fa-magic"></i> Process</button>
+                    <button class="btn-tool btn-secondary" id="clear-btn"><i class="fas fa-eraser"></i> Clear</button>
+                    <button class="btn-tool btn-secondary" id="copy-btn"><i class="fas fa-copy"></i> Copy Output</button>
+                </div>
+                <div class="output-group">
+                    <label>Resulting Output</label>
+                    <textarea id="output" rows="8" readonly placeholder="Result will appear here..."></textarea>
+                </div>
+            </div>
+            
+            <aside class="tool-info-panel" style="background:var(--white); padding:20px; border-radius:12px; box-shadow:var(--shadow); border:1px solid #edf2f7;">
+                <h3 style="margin-bottom:15px; color:var(--primary-navy); font-size:1.1rem;"><i class="fas fa-info-circle"></i> Instructions</h3>
+                <p style="font-size:0.9rem; color:var(--text-light); margin-bottom:20px;">Paste your data and click process to execute the primary function of this utility.</p>
+                
+                <h4 style="margin-bottom:10px; color:var(--primary-navy); font-size:1rem;"><i class="fas fa-check-circle"></i> Capabilities</h4>
+                <ul style="font-size:0.85rem; color:var(--text-light); padding-left:20px; margin-bottom:20px;">
+                    <li>Instant processing</li>
+                    <li>100% Client-side (Secure)</li>
+                    <li>Formatting preserved</li>
+                </ul>
+                
+                <h4 style="margin-bottom:10px; color:var(--primary-navy); font-size:1rem;"><i class="fas fa-exclamation-triangle"></i> Limits</h4>
+                <p style="font-size:0.85rem; color:var(--text-light);">This is a static-hosted browser utility. All processing stays local.</p>
+            </aside>
+        </div>
+    </main>
+    
+    <div id="copy-toast" class="copy-success">Copied to clipboard!</div>
+    
+    <script src="../../js/main.js"></script>
+    <script src="js/xml-formatter.js"></script>
+</body>
+</html>

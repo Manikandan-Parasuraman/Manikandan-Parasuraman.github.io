@@ -1,0 +1,130 @@
+.page-header {
+    padding: 120px 10% 40px;
+    background: var(--bg-light);
+    text-align: center;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 20px auto 40px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 25px 15px 50px;
+    border-radius: 50px;
+    border: 2px solid #e2e8f0;
+    background: var(--white);
+    color: var(--text-main);
+    font-size: 1rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--secondary-blue);
+    box-shadow: var(--hover-shadow);
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.tools-grid {
+    padding: 0 10% 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.category-title {
+    grid-column: 1 / -1;
+    font-size: 1.5rem;
+    color: var(--primary-navy);
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-blue);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tool-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid #edf2f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: fadeIn 0.5s ease-out;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+    border-color: var(--secondary-blue);
+}
+
+.tool-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+
+.tool-desc {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.btn-open {
+    background: var(--accent-blue);
+    color: var(--secondary-blue);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.tool-card:hover .btn-open {
+    background: var(--secondary-blue);
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 100px 5% 30px;
+    }
+
+    .tools-grid {
+        padding: 0 5% 60px;
+    }
+}
