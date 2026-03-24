@@ -124,6 +124,16 @@
             "degree": "Bachelor of Technology (B.Tech) – Information Technology",
             "institution": "SKP Engineering College",
             "year": "2017"
+        },
+        {
+            "degree": "Higher Secondary Certificate (HSC)",
+            "institution": "S.R.G.D.S Matriculation Higher Secondary School",
+            "year": "2013"
+        },
+        {
+            "degree": "Secondary School Leaving Certificate (SSLC)",
+            "institution": "S.R.G.D.S Matriculation Higher Secondary School",
+            "year": "2011"
         }
     ],
     "certifications": [

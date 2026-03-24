@@ -4,7 +4,7 @@ async function loadResumeContent() {
     console.log("Loading resume content...");
 
     try {
-        const response = await fetch('../data/resume.json');
+        const response = await fetch('../data/resume.json?t=' + Date.now());
         if (response.ok) {
             resumeData = await response.json();
             console.log("Loaded resume data from JSON file.");

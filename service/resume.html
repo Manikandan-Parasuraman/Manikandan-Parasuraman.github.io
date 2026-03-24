@@ -49,15 +49,9 @@
         </div>
     </section>
 
-    <section id="projects" style="background: #edf2f7;">
-        <h2 class="section-title">Projects</h2>
-        <div id="resume-projects" class="grid">
-        </div>
-    </section>
-
     <!-- GITHUB REPOSITORIES WITH PAGINATION -->
     <section id="repos">
-        <h2 class="section-title">GitHub Repositories</h2>
+        <h2 class="section-title">Projects</h2>
         <div id="repo-grid" class="grid">
             <!-- Loaded dynamically by JS -->
         </div>
@@ -129,13 +123,22 @@
         // --- GITHUB REPO ENGINE (DYNAMIC) ---
         let allRepos = [];
         let repoPage = 1;
-        const itemsPerPage = 3;
+        const itemsPerPage = 6;
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        }
 
         async function initGitHub() {
             try {
                 // Fetches real data from your GitHub
-                const response = await fetch('https://api.github.com/users/Manikandan-Parasuraman/repos?sort=updated');
+                const response = await fetch('https://api.github.com/users/Manikandan-Parasuraman/repos?sort=created&direction=desc');
                 allRepos = await response.json();
+                
+                // Sorting again just to be sure if API params aren't respected or for consistency
+                allRepos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                
                 renderRepos();
             } catch (e) {
                 document.getElementById('repo-grid').innerHTML = "<p>Error loading repositories. Please check connection.</p>";
@@ -150,8 +153,14 @@
             grid.innerHTML = currentItems.map(repo => `
                 <div class="card">
                     <h3 style="color: var(--primary-navy); margin-bottom:10px">${repo.name.replace(/-/g, ' ')}</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-light); flex-grow:1">${repo.description || "Project exploring advanced software engineering concepts."}</p>
-                    <a href="${repo.html_url}" target="_blank" style="color: var(--secondary-blue); font-weight:700; margin-top:15px; text-decoration:none">View Source →</a>
+                    <p style="font-size: 0.9rem; color: var(--text-light); flex-grow:1; margin-bottom: 15px;">${repo.description || "Project exploring advanced software engineering concepts."}</p>
+                    
+                    <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 12px; border-top: 1px solid #edf2f7; padding-top: 12px;">
+                        <div style="margin-bottom: 6px;"><i class="far fa-calendar-plus" style="width: 18px; color: var(--secondary-blue);"></i> <strong>Created:</strong> ${formatDate(repo.created_at)}</div>
+                        <div><i class="fas fa-history" style="width: 18px; color: var(--secondary-blue);"></i> <strong>Updated:</strong> ${formatDate(repo.updated_at)}</div>
+                    </div>
+
+                    <a href="${repo.html_url}" target="_blank" style="color: var(--secondary-blue); font-weight:700; margin-top:5px; text-decoration:none">View Source →</a>
                 </div>
             `).join('');
 
