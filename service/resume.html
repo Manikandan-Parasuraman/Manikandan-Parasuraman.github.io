@@ -18,14 +18,13 @@
             <a href="../index.html">Home</a>
             <!-- <a href="dev_tools.html">Dev Tools</a> -->
             <a href="#experience">Experience</a>
-            <a href="#projects-section">Projects</a>
+            <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
         </div>
     </nav>
 
     <header class="hero">
         <h1 id="user-name"></h1>
-        <p id="user-role" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; opacity: 0.9;"></p>
         <p id="resume-summary"></p>
 
         <div class="contact-pill" id="user-contact">
@@ -51,11 +50,8 @@
     </section>
 
     <!-- GITHUB REPOSITORIES WITH PAGINATION -->
-    <section id="projects-section">
+    <section id="projects">
         <h2 class="section-title">Projects</h2>
-        <div id="resume-projects" class="grid" style="margin-bottom: 2rem;">
-            <!-- Loaded from resume.json by resume.js -->
-        </div>
         <div id="repo-grid" class="grid">
             <!-- Loaded dynamically by JS -->
         </div>
@@ -142,6 +138,13 @@
 
                 // Sorting again just to be sure if API params aren't respected or for consistency
                 allRepos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+                // Filter out specified repositories
+                allRepos = allRepos.filter(repo => {
+                    const normalizedName = repo.name.toLowerCase().replace(/-/g, ' ');
+                    return normalizedName !== 'custom automation testing framework' && 
+                           normalizedName !== 'mongodb mcp server';
+                });
 
                 renderRepos();
             } catch (e) {
