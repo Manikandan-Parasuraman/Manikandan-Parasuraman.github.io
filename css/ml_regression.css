@@ -1,0 +1,151 @@
+/* Keep styles scoped to ML Projects and reuse main.css variables */
+
+/* Use site background color (no background image) */
+body {
+  background-color: var(--bg-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 901px) {
+  body { background-attachment: fixed; }
+}
+
+/* Ensure page content clears the fixed nav */
+main { padding-top: 84px; }
+
+/* Small helper classes */
+.muted { color: var(--text-light); opacity: 0.95; font-size: 0.95rem; }
+
+.left-drawer { position:fixed; left:0; top:0; height:100vh; width:260px; max-width:92%; background:var(--primary-navy); color:var(--white); box-shadow: 6px 0 40px rgba(2,6,23,0.14); z-index:1999; padding:0 18px 18px 18px; overflow:auto; transform: translateX(0); transition: transform .28s ease; }
+.left-drawer { position:fixed; left:0; top:0; height:100vh; width:260px; max-width:92%; background:var(--primary-navy); color:var(--white); box-shadow: 6px 0 40px rgba(2,6,23,0.14); z-index:1999; padding:0 18px 18px 18px; overflow:auto; transform: translateX(0); transition: transform .28s ease; }
+.left-drawer .drawer-content { padding-top:84px; }
+.drawer-content { padding-top:28px; }
+.drawer-item { display:block; padding:10px 8px; border-radius:8px; color:var(--white); text-decoration:none; border:1px solid rgba(255,255,255,0.04); margin-bottom:8px; cursor:pointer; background: transparent; }
+.drawer-item:hover { background: rgba(255,255,255,0.04); }
+
+/* Collapse behavior */
+.left-drawer.collapsed { transform: translateX(-100%); }
+.left-drawer.collapsed .drawer-item { opacity:0; height:0; margin:0; padding:0; pointer-events:none; }
+.drawer-toggle { position:fixed; top:18px; left:260px; width:40px; height:40px; border-radius:50%; background:var(--primary-navy); border:none; color:var(--white); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow: 0 6px 18px rgba(2,6,23,0.16); z-index:2001; font-size:18px; }
+.left-drawer.collapsed + .drawer-toggle { left:12px; }
+
+/* Adjust main content when sidebar is present or collapsed */
+main { padding-top:84px; margin-left:280px; transition: margin-left .28s ease; }
+.left-drawer.collapsed ~ main { margin-left:76px; }
+.left-drawer ~ main { margin-left:280px; }
+
+@media (min-width: 900px) {
+  .left-drawer { width: 320px; max-width: 92%; }
+}
+
+/* Make room for frozen sidebar */
+main { padding-top: 84px; margin-left: 280px; }
+.page-section { max-width: 900px; margin: 0 auto; padding: 1rem; }
+
+/* Make section title appear as a dark header matching sidebar */
+.section-title {
+  background: var(--primary-navy);
+  color: white;
+  display: block;
+  padding: 14px 18px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 1rem;
+}
+.section-title:empty { display:none; }
+.section-title::after { background: var(--accent-blue); }
+
+/* Centered nav title and hide default logo on this page */
+.nav-center { position: absolute; left: 50%; transform: translateX(-50%); top: 50%; transform: translate(-50%, -50%); color: white; font-weight:700; pointer-events:none; }
+.logo { display: none; }
+
+/* Keep nav links pinned to the right for this page only */
+nav .nav-links { margin-left: auto; justify-content: flex-end; }
+
+/* Tabs */
+#model-tabs { display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; margin-bottom:18px; }
+#model-tabs .btn { padding: 10px 18px; border-radius: 8px; }
+
+/* Home cards on Quick Learn Notes landing */
+.home-cards { display:flex; gap:1rem; justify-content:flex-start; flex-wrap:wrap; padding: 1.5rem 0; max-width:1200px; margin:0 auto; }
+.home-card { display:block; width: 320px; flex: 0 1 320px; border-radius: 12px; overflow:hidden; text-decoration:none; color:inherit; background: var(--white); box-shadow: var(--shadow); border: 1px solid rgba(15,23,42,0.04); }
+.home-card img { width:100%; height:160px; object-fit:cover; display:block; }
+.home-card-body { padding: 0.85rem 1rem; }
+.home-card-body h3 { margin: 0 0 6px 0; color: var(--primary-navy); }
+.home-card-body p { margin: 0; color: var(--text-light); font-size: 0.95rem; }
+
+/* Sidebar item with optional thumbnail */
+.sidebar-item { display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:6px; color:var(--primary-navy); text-decoration:none; }
+.sidebar-item:hover { background: rgba(43,108,176,0.04); }
+.sidebar-item img { width:40px; height:28px; object-fit:cover; border-radius:6px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+
+/* Layout: use a centered max-width grid for predictable columns */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  align-items: start;
+}
+
+/* Sidebar */
+/* Sidebar */
+#menu { display: block; }
+#menu h4 { margin: 0 0 8px 0; font-size: 1.05rem; }
+#content { min-width: 0; position: relative; }
+#content img#model-image { float: right; display: block; }
+
+/* Equal two-column layout for image + chart */
+.two-column { display: grid; grid-template-columns: 1fr 520px; gap: 1.5rem; align-items: start; }
+.two-column .card { min-height: 420px; }
+.image-card { display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.image-card img { width:100%; height:100%; object-fit:cover; border-radius:8px; }
+.topic-list { display:none; }
+.topic-btn { display:none; }
+
+#content { min-width: 0; position: relative; }
+#content img#model-image { float: right; display: block; }
+
+/* Main content column */
+#content { min-width: 0; }
+
+/* Cards and topics */
+.card { background: var(--white); color: var(--text-main); border-radius: 12px; padding: 1rem; box-shadow: var(--shadow); border: 1px solid rgba(15,23,42,0.04); }
+.topic-detail { padding: 1rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill,minmax(180px,1fr)); gap: 1rem; }
+
+/* Chart handling: make canvas scale to its container */
+.card canvas, canvas { width: 100% !important; display: block; }
+
+/* Chart container with explicit min-height so Chart.js can fill it */
+.chart-card { display:none; }
+
+/* Navigation small tweaks reuse variables from main.css */
+.nav-links { gap: 1rem; }
+
+/* Responsive: stack into a single column on smaller screens */
+@media (max-width: 900px) {
+  .container { display: block; }
+  .equal-columns { display: block; }
+  .image-card, .chart-card { min-height: 240px; }
+  .image-card img { height: auto; }
+  .topic-list { justify-content:center; }
+}
+
+/* Accessibility / small polish */
+.card { transition: transform .12s ease, box-shadow .12s ease; }
+.card:focus-within, .card:hover { transform: translateY(-4px); box-shadow: var(--hover-shadow); }
+
+/* If viewport is very narrow, reduce grid gutter and padding */
+@media (max-width:480px) {
+  .container { padding: 0.75rem; gap: 0.75rem; }
+  .section-title { font-size: 1.4rem; margin-bottom: 1.25rem; }
+  .chart-card { min-height: 220px; }
+}
+
+/* Page section wrapper */
+.page-section { max-width: 1200px; margin: 0 auto; padding: 1rem; }

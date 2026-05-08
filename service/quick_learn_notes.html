@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quick Learn Notes</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/ml_regression.css">
+  </head>
+
+  <body>
+    <nav>
+      <a class="logo" href="../index.html" aria-hidden="true"></a>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../service/quick_learn_notes.html" class="active">Quick Learn Notes</a>
+        <a href="../service/resume.html">Portfolio</a>
+      </div>
+      <div class="nav-center">Quick Learn Notes</div>
+    </nav>
+
+    <!-- Left sidebar (frozen) -->
+    <aside id="left-drawer" class="left-drawer" aria-hidden="false">
+      <div class="drawer-content">
+        <div id="drawer-items"></div>
+      </div>
+    </aside>
+    
+      <!-- Sidebar toggle (outside the drawer) -->
+      <button id="drawer-toggle" class="drawer-toggle" aria-label="Collapse sidebar">&gt;</button>
+
+    <main>
+      <div id="home-cards" class="home-cards">
+        <a href="#" id="card-ml-regression" class="home-card" aria-label="Open ML Regression">
+          <img src="../img/ml_regression/ml_regression.webp" alt="ML Regression">
+          <div class="home-card-body">
+            <h3>ML Regression</h3>
+            <p>Quick notes and examples</p>
+          </div>
+        </a>
+      </div>
+      <section class="page-section">
+        <h2 class="section-title">ML Regression</h2>
+        <div id="model-tabs" style="display:flex;gap:8px;justify-content:center;margin-bottom:18px"></div>
+
+        <div class="two-column" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 520px;gap:1.5rem;align-items:start;">
+          <div id="model-text" class="card" style="text-align:left;">
+            <h3 id="model-title">Welcome</h3>
+            <p id="model-desc">Select a model from the tabs above.</p>
+            <p id="model-formula" style="font-weight:600;"></p>
+            <p id="model-content" class="muted">Select a model to view details here.</p>
+          </div>
+
+          <div id="model-visual" class="card image-card" aria-hidden="false"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/ml_regression.js"></script>
+  </body>
+</html>

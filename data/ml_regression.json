@@ -1,0 +1,80 @@
+{
+  "intro": {
+    "title": "Why Regression?",
+    "points": ["Predict numbers", "House prices", "Revenue"]
+  },
+  "models": [
+    {
+      "id": "linear",
+      "title": "Linear Regression",
+      "description": "Straight line model. Fast & simple. Best for linear trends.",
+      "formula": "y = mx + c"
+      ,
+      "topics": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "summary": "What is Linear Regression and when to use it.",
+          "content": "Linear regression fits a straight line to data using least squares. It's a fundamental technique for predicting a continuous target."
+        },
+        {
+          "id": "formula",
+          "title": "Formula",
+          "summary": "Mathematical formula and interpretation.",
+          "content": "The model is y = mx + c where m is slope and c is intercept. Coefficients are learned from data."
+        },
+        {
+          "id": "example",
+          "title": "Example",
+          "summary": "A small example dataset and prediction.",
+          "content": "Given points, the model estimates the best-fit line. Use libraries like scikit-learn or implement with numpy."
+        }
+      ]
+    },
+    {
+      "id": "multiple",
+      "title": "Multiple Linear Regression",
+      "description": "Uses multiple features. More realistic. Still linear.",
+      "formula": "y = b0 + b1x1 + b2x2"
+      ,
+      "topics": [
+        {"id":"overview","title":"Overview","summary":"Extend linear regression to multiple features.","content":"Multiple linear regression models a target as a linear combination of several input features."},
+        {"id":"assumptions","title":"Assumptions","summary":"Core assumptions to validate.","content":"Linearity, independence, homoscedasticity, normality of errors are common assumptions."},
+        {"id":"example","title":"Example","summary":"A real-world example using multiple inputs.","content":"Predicting house prices from area, bedrooms, and age of property."}
+      ]
+    },
+    {
+      "id": "tree",
+      "title": "Decision Tree",
+      "description": "Rule-based splits. Easy to understand. Non-linear model."
+      ,
+      "topics": [
+        {"id":"overview","title":"Overview","summary":"How decision trees partition the feature space.","content":"Decision trees split features by thresholds to create simple decision rules."},
+        {"id":"advantages","title":"Advantages","summary":"When to prefer trees.","content":"Interpretable, handles non-linear relationships, works with mixed data types."},
+        {"id":"limitations","title":"Limitations","summary":"Common pitfalls.","content":"Prone to overfitting and can be unstable to small changes in data."}
+      ]
+    },
+    {
+      "id": "rf",
+      "title": "Random Forest",
+      "description": "Many trees combined. High accuracy. Reduces overfitting."
+      ,
+      "topics": [
+        {"id":"overview","title":"Overview","summary":"Ensemble of decision trees.","content":"Random Forest averages predictions from many decorrelated trees to reduce variance."},
+        {"id":"tuning","title":"Tuning","summary":"Key hyperparameters.","content":"Number of trees, max depth, and features per split influence performance and cost."},
+        {"id":"usecases","title":"Use Cases","summary":"Where RF shines.","content":"Tabular data problems with complex interactions and when interpretability is secondary."}
+      ]
+    },
+    {
+      "id": "grid",
+      "title": "Grid Search",
+      "description": "Tries multiple combinations to find the best model."
+      ,
+      "topics": [
+        {"id":"overview","title":"Overview","summary":"Hyperparameter search by grid.","content":"Grid search exhaustively evaluates parameter combinations to find the best performing set."},
+        {"id":"alternatives","title":"Alternatives","summary":"Faster search strategies.","content":"Random search and Bayesian optimization can be more efficient for large spaces."},
+        {"id":"practical","title":"Practical Tips","summary":"Best practices when using grid search.","content":"Use cross-validation, scale data, and limit search ranges to reasonable values."}
+      ]
+    }
+  ]
+}
