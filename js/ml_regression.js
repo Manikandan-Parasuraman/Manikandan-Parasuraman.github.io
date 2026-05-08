@@ -1,15 +1,20 @@
 let appData = null;
 
 fetch('../data/ml_regression.json')
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error('Failed to load ml_regression.json');
+    return res.json();
+  })
   .then(data => {
     appData = data;
-      // prepare UI but show Home by default
-      renderDrawerItems();
-        // drawer is frozen (always visible); show Home by default
-        showHome();
-        attachSidebarToggle();
-        attachHomeCardHandlers();
+    // prepare UI but show Home by default
+    renderDrawerItems();
+    showHome();
+    attachSidebarToggle();
+    attachHomeCardHandlers();
+  })
+  .catch(err => {
+    console.error('ml_regression: failed to load data', err);
   });
 
     function attachSidebarToggle() {
@@ -45,16 +50,16 @@ function renderDrawerItems() {
 }
 
 function showHome() {
-  // hide model tabs and clear content
+  // hide model tabs and clear content (guard elements)
   const tabs = document.getElementById('model-tabs');
-  tabs.innerHTML = '';
-  document.getElementById('model-title').innerText = '';
-  document.getElementById('model-desc').innerText = '';
-  document.getElementById('model-formula').innerText = '';
-  document.getElementById('model-content').innerText = '';
+  if (tabs) tabs.innerHTML = '';
+  const titleEl = document.getElementById('model-title'); if (titleEl) titleEl.textContent = '';
+  const descEl = document.getElementById('model-desc'); if (descEl) descEl.textContent = '';
+  const formulaEl = document.getElementById('model-formula'); if (formulaEl) formulaEl.textContent = '';
+  const contentEl = document.getElementById('model-content'); if (contentEl) contentEl.textContent = '';
   const visual = document.getElementById('model-visual'); if (visual) visual.innerHTML = '';
   const two = document.querySelector('.two-column'); if (two) two.style.display = 'none';
-  const section = document.querySelector('.section-title'); if (section) section.innerText = '';
+  const section = document.querySelector('.section-title'); if (section) section.textContent = '';
   const homeCards = document.getElementById('home-cards'); if (homeCards) homeCards.style.display = 'flex';
 }
 
@@ -79,12 +84,13 @@ function attachHomeCardHandlers() {
 
 function renderModelTabs(models) {
   const tabs = document.getElementById('model-tabs');
+  if (!tabs) return;
   tabs.innerHTML = '';
   models.forEach(m => {
     const btn = document.createElement('button');
     btn.className = 'btn btn-outline';
-    btn.innerText = m.title;
-    btn.onclick = () => selectModel(m.id);
+    btn.textContent = m.title;
+    btn.addEventListener('click', () => selectModel(m.id));
     tabs.appendChild(btn);
   });
 }
@@ -92,11 +98,10 @@ function renderModelTabs(models) {
 function selectModel(modelId) {
   const model = appData.models.find(m => m.id === modelId);
   if (!model) return;
-
-  document.getElementById('model-title').innerText = model.title;
-  document.getElementById('model-desc').innerText = model.description || '';
-  document.getElementById('model-formula').innerText = model.formula || '';
-  const section = document.querySelector('.section-title'); if (section) section.innerText = model.title;
+  const titleEl = document.getElementById('model-title'); if (titleEl) titleEl.textContent = model.title;
+  const descEl = document.getElementById('model-desc'); if (descEl) descEl.textContent = model.description || '';
+  const formulaEl = document.getElementById('model-formula'); if (formulaEl) formulaEl.textContent = model.formula || '';
+  const section = document.querySelector('.section-title'); if (section) section.textContent = model.title;
 
   // Populate the left column content directly (no topic clicks)
   const contentEl = document.getElementById('model-content');
@@ -105,7 +110,7 @@ function selectModel(modelId) {
     // join topic contents for a single scrollable content block
     mainContent = model.topics.map(t => t.content || t.summary || '').join('\n\n');
   }
-  contentEl.innerText = mainContent || 'No additional details available.';
+  if (contentEl) contentEl.textContent = mainContent || 'No additional details available.';
 
   setModelImage(model);
 }
